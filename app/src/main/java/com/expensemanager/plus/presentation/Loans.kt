@@ -1,5 +1,5 @@
 
-package com.investpro.presentation
+package com.expensemanager.plus.presentation
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
@@ -15,10 +15,9 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.expensemanager.plus.presentation.MainEvent
 import com.expensemanager.plus.domain.model.basedto.BaseState
 import com.expensemanager.plus.domain.model.basedto.Loan
-import com.investpro.ui.theme.baseBackground
+import com.expensemanager.plus.ui.theme.baseBackground
 
 @SuppressLint("CoroutineCreationDuringComposition")
 @Composable

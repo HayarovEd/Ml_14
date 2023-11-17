@@ -1,4 +1,4 @@
-package com.investpro.presentation
+package com.expensemanager.plus.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -26,11 +26,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.investpro.R
-import com.investpro.R.string
-import com.expensemanager.plus.presentation.MainEvent
+import com.expensemanager.plus.R
+import com.expensemanager.plus.R.string
+import com.expensemanager.plus.R.drawable
 import com.expensemanager.plus.data.VALUE_ONE
 import com.expensemanager.plus.domain.model.basedto.BaseDto
 import com.expensemanager.plus.domain.model.basedto.BaseState
@@ -40,11 +41,10 @@ import com.expensemanager.plus.domain.model.basedto.BaseState.Loans
 import com.expensemanager.plus.domain.model.basedto.CardsCredit
 import com.expensemanager.plus.domain.model.basedto.CardsDebit
 import com.expensemanager.plus.domain.model.basedto.CardsInstallment
-import com.expensemanager.plus.presentation.WebViewScreenPrimary
-import com.investpro.ui.theme.baseBackground
-import com.investpro.ui.theme.baseText
-import com.investpro.ui.theme.blue
-import com.investpro.ui.theme.grey
+import com.expensemanager.plus.ui.theme.baseBackground
+import com.expensemanager.plus.ui.theme.baseText
+import com.expensemanager.plus.ui.theme.green
+import com.expensemanager.plus.ui.theme.grey
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -88,11 +88,14 @@ fun ConnectScreen(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
+                            modifier = modifier
+                                .fillMaxWidth(),
                             color = baseText,
-                            fontStyle = FontStyle(R.font.poppins),
+                            fontStyle = FontStyle(R.font.gotham),
                             fontSize = 22.sp,
                             fontWeight = FontWeight(600),
-                            text = title
+                            text = title,
+                            textAlign = TextAlign.Center
                         )
                         /* IconButton(onClick = onClickRules) {
                              Icon(
@@ -145,25 +148,31 @@ fun ConnectScreen(
                     }
                     if (!db.loans.isNullOrEmpty()) {
                         ItemBottomBar(
-                            color = if (baseState is Loans) blue else grey,
+                            color = if (baseState is Loans) green else grey,
                             content = stringResource(id = string.loans),
-                            icon = ImageVector.vectorResource(id = drawable.credits),
+                            icon = if (baseState is Loans) ImageVector.vectorResource(id = drawable.loans_fill) else ImageVector.vectorResource(
+                                id = drawable.loans
+                            ),
                             onClick = onClickLoans
                         )
                     }
                     if (!db.cards.isNullOrEmpty()) {
                         ItemBottomBar(
-                            color = if (baseState is Cards) blue else grey,
+                            color = if (baseState is Cards) green else grey,
                             content = stringResource(id = string.cards),
-                            icon = ImageVector.vectorResource(id = drawable.cards),
+                            icon = if (baseState is Cards) ImageVector.vectorResource(id = drawable.cards_fill) else ImageVector.vectorResource(
+                                id = drawable.cards
+                            ),
                             onClick = onClickCards
                         )
                     }
                     if (!db.credits.isNullOrEmpty()) {
                         ItemBottomBar(
-                            color = if (baseState is Credits) blue else grey,
+                            color = if (baseState is Credits) green else grey,
                             content = stringResource(id = string.credits),
-                            icon = ImageVector.vectorResource(id = drawable.credits),
+                            icon = if (baseState is Credits) ImageVector.vectorResource(id = drawable.credits_fill) else ImageVector.vectorResource(
+                                id = drawable.credits
+                            ),
                             onClick = onClickCredits
                         )
                     }

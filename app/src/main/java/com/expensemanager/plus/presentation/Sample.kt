@@ -15,7 +15,6 @@ import com.expensemanager.plus.domain.model.TypeCard
 import com.expensemanager.plus.domain.model.basedto.BaseState
 import com.expensemanager.plus.presentation.MainEvent.OnChangeBaseState
 import com.expensemanager.plus.presentation.MainEvent.OnChangeStatusApplication
-import com.investpro.presentation.ConnectScreen
 
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable

@@ -1,5 +1,5 @@
 
-package com.investpro.presentation
+package com.expensemanager.plus.presentation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -21,18 +21,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.expensemanager.plus.presentation.MainEvent
-import com.investpro.R
+import com.expensemanager.plus.R
 import com.expensemanager.plus.data.VALUE_ONE
 import com.expensemanager.plus.domain.model.ElementOffer
 import com.expensemanager.plus.domain.model.StatusApplication
 import com.expensemanager.plus.domain.model.basedto.BaseState
 import com.expensemanager.plus.domain.model.basedto.CardsInstallment
-import com.expensemanager.plus.presentation.RowCard
-import com.expensemanager.plus.presentation.RowData
-import com.investpro.ui.theme.baseText
-import com.investpro.ui.theme.grey
-import com.investpro.ui.theme.lightGrey
+import com.expensemanager.plus.ui.theme.green
+import com.expensemanager.plus.ui.theme.lightGrey
 
 @Composable
 fun ItemInstallmentCard(
@@ -44,16 +40,16 @@ fun ItemInstallmentCard(
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .shadow(
-                elevation = 20.dp,
-                spotColor = grey,
-                ambientColor = grey,
-                shape = RoundedCornerShape(20.dp)
-            )
+            /* .shadow(
+                 elevation = 20.dp,
+                 spotColor = grey,
+                 ambientColor = grey,
+                 shape = RoundedCornerShape(20.dp)
+             )*/
             //.border(width = 3.dp, color = grey, shape = RoundedCornerShape(15.dp))
-            .clip(shape = RoundedCornerShape(16.dp))
+            .clip(shape = RoundedCornerShape(10.dp))
             .background(color = lightGrey)
-            .padding(16.dp)
+            .padding(13.dp)
     ) {
         AsyncImage(
             modifier = modifier
@@ -92,10 +88,10 @@ fun ItemInstallmentCard(
         )
         Spacer(modifier = modifier.height(15.dp))
         Text(
-            color = baseText,
-            fontStyle = FontStyle(R.font.poppins),
-            fontSize = 17.sp,
-            fontWeight = FontWeight(600),
+            color = green,
+            fontStyle = FontStyle(R.font.gotham),
+            fontSize = 18.sp,
+            fontWeight = FontWeight(500),
             text = card.name
         )
         /*Row(
@@ -114,7 +110,7 @@ fun ItemInstallmentCard(
                 rang = card.score
             )
         }*/
-        Spacer(modifier = modifier.height(19.dp))
+        Spacer(modifier = modifier.height(15.dp))
         RowData(
             title = stringResource(id = R.string.amount),
             content = card.summPrefix +" " + card.summMin +" " + card.summMid +" " + card.summMax +" " + card.summPostfix
@@ -141,7 +137,7 @@ fun ItemInstallmentCard(
                 content = card.termPrefix +" "+ card.termMin +" " + card.termMid +" " + card.termMax +" " + card.termPostfix
             )
         }
-        Spacer(modifier = modifier.height(14.dp))
+        Spacer(modifier = modifier.height(20.dp))
         RowCard(
             showVisa = card.showVisa,
             showMaster = card.showMastercard,
@@ -150,7 +146,7 @@ fun ItemInstallmentCard(
             showQivi = card.showQiwi,
             showCache = card.showCash
         )
-        Spacer(modifier = modifier.height(14.dp))
+        Spacer(modifier = modifier.height(20.dp))
         RowButtons(
             titleOffer = card.orderButtonText,
             onEvent = onEvent,
