@@ -97,7 +97,7 @@ fun RowButtons(
                         )
                     )
                 })
-                .padding(vertical = 11.dp)
+                .padding(vertical = 10.dp)
         ) {
             Icon(
                 modifier = modifier.align(alignment = Alignment.Center),
