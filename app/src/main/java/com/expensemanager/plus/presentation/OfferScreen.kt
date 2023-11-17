@@ -1,8 +1,7 @@
-package com.investpro.presentation
+package com.expensemanager.plus.presentation
 
 import android.annotation.SuppressLint
 import android.widget.TextView
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -22,7 +21,6 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -30,9 +28,6 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.rotate
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
@@ -47,17 +42,14 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.text.HtmlCompat
 import coil.compose.AsyncImage
-import com.investpro.R
-import com.expensemanager.plus.presentation.MainEvent
+import com.expensemanager.plus.R
 import com.expensemanager.plus.data.VALUE_ONE
 import com.expensemanager.plus.domain.model.ElementOffer
 import com.expensemanager.plus.domain.model.StatusApplication
 import com.expensemanager.plus.domain.model.basedto.BaseState
-import com.investpro.ui.theme.baseBackground
-import com.investpro.ui.theme.baseText
-import com.investpro.ui.theme.blue
-import com.investpro.ui.theme.grey
-import com.investpro.ui.theme.lightGrey
+import com.expensemanager.plus.ui.theme.baseBackground
+import com.expensemanager.plus.ui.theme.baseText
+import com.expensemanager.plus.ui.theme.green
 
 @SuppressLint("ResourceAsColor")
 @OptIn(ExperimentalMaterial3Api::class)
@@ -90,18 +82,17 @@ fun OfferScreen(
                             )
                         }) {
                             Icon(
-                                modifier = modifier.rotate(180f),
-                                imageVector = ImageVector.vectorResource(id = R.drawable.left_arrow3),
-                                tint = blue,
+                                imageVector = ImageVector.vectorResource(id = R.drawable.baseline_arrow_back_ios_new_24),
+                                tint = baseText,
                                 contentDescription = ""
                             )
                         }
-                        Spacer(modifier = modifier.width(8.dp))
+                        Spacer(modifier = modifier.width(15.dp))
                         Text(
                             color = baseText,
-                            fontStyle = FontStyle(R.font.poppins),
-                            fontSize = 20.sp,
-                            fontWeight = FontWeight(600),
+                            fontStyle = FontStyle(R.font.gotham),
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight(500),
                             text = elementOffer.name
                         )
                     }
@@ -112,73 +103,106 @@ fun OfferScreen(
             BottomAppBar(
                 containerColor = baseBackground
             ) {
-                Row (
+                Button(
                     modifier = modifier
+                        .padding(horizontal = 50.dp)
                         .fillMaxWidth()
-                        .padding(horizontal = 24.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    OutlinedButton(
-                        modifier = modifier.weight(1f),
-                        onClick = {
+                        .weight(3f),
+                    //.padding(horizontal = 15.dp)
+                    //.fillMaxWidth(),
+                    shape = RoundedCornerShape(10.dp),
+                    contentPadding = PaddingValues(
+                        vertical = 16.dp,
+                    ),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = green,
+                        contentColor = baseBackground,
+                    ),
+                    onClick = {
                         onEvent(
-                            MainEvent.OnChangeStatusApplication(
-                                StatusApplication.Connect(baseState)
-                            )
-                        )
-                    },
-                        shape = RoundedCornerShape(5.dp),
-                        border = BorderStroke(
-                            width = 2.dp,
-                            color = blue
-                        ),
-                        contentPadding = PaddingValues(
-                            vertical = 16.dp,
-                        ),
-                        colors = ButtonDefaults.outlinedButtonColors(
-                            containerColor = baseBackground,
-                            contentColor = blue,
-                        ),
-                    ) {
-                        Icon(
-                            imageVector = ImageVector.vectorResource(id = R.drawable.route_left),
-                            tint = blue,
-                            contentDescription = ""
-                        )
-                    }
-                    Spacer(modifier = modifier.width(12.dp))
-                    Button(
-                        modifier = modifier
-                            .weight(3f),
-                            //.padding(horizontal = 15.dp)
-                            //.fillMaxWidth(),
-                        shape = RoundedCornerShape(5.dp),
-                        contentPadding = PaddingValues(
-                            vertical = 16.dp,
-                        ),
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = blue,
-                            contentColor = baseBackground,
-                        ),
-                        onClick = {
-                            onEvent(
-                                MainEvent.OnGoToWeb(
-                                    urlOffer = elementOffer.order,
-                                    nameOffer = elementOffer.name
-                                )
-                            )
-                        }
-                    ) {
-                        Text(
-                            text = stringResource(id = R.string.checkout),
-                            style = TextStyle(
-                                fontSize = 20.sp,
-                                fontFamily = FontFamily(Font(R.font.inter)),
-                                fontWeight = FontWeight(600),
+                            MainEvent.OnGoToWeb(
+                                urlOffer = elementOffer.order,
+                                nameOffer = elementOffer.name
                             )
                         )
                     }
+                ) {
+                    Text(
+                        text = stringResource(id = R.string.checkout),
+                        style = TextStyle(
+                            fontSize = 14.sp,
+                            fontFamily = FontFamily(Font(R.font.gotham)),
+                            fontWeight = FontWeight(500),
+                        )
+                    )
                 }
+                /* Row (
+                     modifier = modifier
+                         .fillMaxWidth()
+                         .padding(horizontal = 24.dp),
+                     verticalAlignment = Alignment.CenterVertically
+                 ) {
+                     OutlinedButton(
+                         modifier = modifier.weight(1f),
+                         onClick = {
+                         onEvent(
+                             MainEvent.OnChangeStatusApplication(
+                                 StatusApplication.Connect(baseState)
+                             )
+                         )
+                     },
+                         shape = RoundedCornerShape(5.dp),
+                         border = BorderStroke(
+                             width = 2.dp,
+                             color = blue
+                         ),
+                         contentPadding = PaddingValues(
+                             vertical = 16.dp,
+                         ),
+                         colors = ButtonDefaults.outlinedButtonColors(
+                             containerColor = baseBackground,
+                             contentColor = blue,
+                         ),
+                     ) {
+                         Icon(
+                             imageVector = ImageVector.vectorResource(id = R.drawable.route_left),
+                             tint = blue,
+                             contentDescription = ""
+                         )
+                     }
+                     Spacer(modifier = modifier.width(12.dp))
+                     Button(
+                         modifier = modifier
+                             .weight(3f),
+                             //.padding(horizontal = 15.dp)
+                             //.fillMaxWidth(),
+                         shape = RoundedCornerShape(5.dp),
+                         contentPadding = PaddingValues(
+                             vertical = 16.dp,
+                         ),
+                         colors = ButtonDefaults.buttonColors(
+                             containerColor = blue,
+                             contentColor = baseBackground,
+                         ),
+                         onClick = {
+                             onEvent(
+                                 MainEvent.OnGoToWeb(
+                                     urlOffer = elementOffer.order,
+                                     nameOffer = elementOffer.name
+                                 )
+                             )
+                         }
+                     ) {
+                         Text(
+                             text = stringResource(id = R.string.checkout),
+                             style = TextStyle(
+                                 fontSize = 20.sp,
+                                 fontFamily = FontFamily(Font(R.font.inter)),
+                                 fontWeight = FontWeight(600),
+                             )
+                         )
+                     }
+                 }*/
             }
         }
     ) { paddingValues ->
@@ -186,12 +210,12 @@ fun OfferScreen(
             modifier = modifier
                 .padding(paddingValues)
                 .verticalScroll(rememberScrollState())
-                .padding(16.dp)
-                .shadow(elevation = 10.dp, spotColor = grey, ambientColor = grey, shape = RoundedCornerShape(20.dp))
+                //.shadow(elevation = 10.dp, spotColor = grey, ambientColor = grey, shape = RoundedCornerShape(20.dp))
                 .background(color = baseBackground)
-                .clip(shape = RoundedCornerShape(20.dp))
-                .background(color = lightGrey)
-                .padding(16.dp),
+                .padding(16.dp)
+            //.clip(shape = RoundedCornerShape(20.dp))
+            //.background(color = lightGrey)
+            //.padding(16.dp),
         ) {
             AsyncImage(
                 modifier = modifier
@@ -203,10 +227,10 @@ fun OfferScreen(
             Spacer(modifier = modifier.height(26.dp))
             AndroidView(
                 modifier = modifier
-                    .fillMaxWidth()
-                   // .clip(shape = RoundedCornerShape(5.dp))
-                   // .background(color = white)
-                    .padding(5.dp),
+                    .fillMaxWidth(),
+                // .clip(shape = RoundedCornerShape(5.dp))
+                // .background(color = white)
+                //.padding(5.dp),
                 factory = { context -> TextView(context) },
                 update = {
                     it.setTextColor(R.color.white)
@@ -216,7 +240,7 @@ fun OfferScreen(
                     )
                 }
             )
-            Spacer(modifier = modifier.height(24.dp))
+            Spacer(modifier = modifier.height(35.dp))
             /*Text(
                 text = elementOffer.name,
                 style = TextStyle(
@@ -230,6 +254,7 @@ fun OfferScreen(
             RowData(
                 title = stringResource(id = R.string.amount),
                 content = elementOffer.amount,
+                colorBackground = baseBackground
             )
             if (elementOffer.showPercent == VALUE_ONE) {
                 /*Divider(
@@ -240,6 +265,7 @@ fun OfferScreen(
                 RowData(
                     title = stringResource(id = R.string.bet),
                     content = elementOffer.bet,
+                    colorBackground = baseBackground
                 )
             }
             if (elementOffer.showTerm == VALUE_ONE) {
@@ -251,9 +277,10 @@ fun OfferScreen(
                 RowData(
                     title = stringResource(id = R.string.term),
                     content = elementOffer.term,
+                    colorBackground = baseBackground
                 )
             }
-            Spacer(modifier = modifier.height(24.dp))
+            Spacer(modifier = modifier.height(17.dp))
             RowCard(
                 showVisa = elementOffer.showVisa,
                 showMaster = elementOffer.showMaster,

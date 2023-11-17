@@ -28,6 +28,8 @@ import com.expensemanager.plus.domain.model.ElementOffer
 import com.expensemanager.plus.domain.model.StatusApplication
 import com.expensemanager.plus.domain.model.basedto.BaseState
 import com.expensemanager.plus.domain.model.basedto.CardsInstallment
+import com.expensemanager.plus.presentation.RowCard
+import com.expensemanager.plus.presentation.RowData
 import com.investpro.ui.theme.baseText
 import com.investpro.ui.theme.grey
 import com.investpro.ui.theme.lightGrey

@@ -1,4 +1,4 @@
-package com.investpro.presentation
+package com.expensemanager.plus.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -9,7 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
-import com.investpro.R
+import com.expensemanager.plus.R
 import com.expensemanager.plus.data.VALUE_ONE
 
 @Composable

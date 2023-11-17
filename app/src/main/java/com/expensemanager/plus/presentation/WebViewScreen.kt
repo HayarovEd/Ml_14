@@ -99,7 +99,6 @@ fun WebViewScreen(
                             onEvent(MainEvent.Reconnect)
                         }) {
                             Icon(
-                                modifier = modifier.rotate(180f),
                                 imageVector = ImageVector.vectorResource(id = R.drawable.baseline_arrow_back_ios_new_24),
                                 tint = baseText,
                                 contentDescription = ""

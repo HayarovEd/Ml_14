@@ -16,7 +16,6 @@ import com.expensemanager.plus.domain.model.basedto.BaseState
 import com.expensemanager.plus.presentation.MainEvent.OnChangeBaseState
 import com.expensemanager.plus.presentation.MainEvent.OnChangeStatusApplication
 import com.investpro.presentation.ConnectScreen
-import com.investpro.presentation.OfferScreen
 
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
