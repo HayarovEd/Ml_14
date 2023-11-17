@@ -21,7 +21,6 @@ import com.expensemanager.plus.data.APPS_FLYER
 import com.expensemanager.plus.data.LINK
 import com.expensemanager.plus.data.SHARED_APPSFLYER_INSTANCE_ID
 import com.expensemanager.plus.data.SHARED_DATA
-import com.investpro.presentation.Sample
 import com.my.tracker.MyTracker
 import dagger.hilt.android.AndroidEntryPoint
 

@@ -1,4 +1,4 @@
-package com.investpro.presentation
+package com.expensemanager.plus.presentation
 
 import android.content.Context
 import android.content.Intent
@@ -49,11 +49,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.FileProvider
-import com.investpro.R
-import com.expensemanager.plus.presentation.MainEvent
-import com.investpro.ui.theme.baseBackground
-import com.investpro.ui.theme.baseText
-import com.investpro.ui.theme.blue
+import com.expensemanager.plus.R
+import com.expensemanager.plus.ui.theme.baseBackground
+import com.expensemanager.plus.ui.theme.baseText
 import java.io.File
 import java.io.IOException
 
@@ -102,17 +100,17 @@ fun WebViewScreen(
                         }) {
                             Icon(
                                 modifier = modifier.rotate(180f),
-                                imageVector = ImageVector.vectorResource(id = R.drawable.left_arrow3),
-                                tint = blue,
+                                imageVector = ImageVector.vectorResource(id = R.drawable.baseline_arrow_back_ios_new_24),
+                                tint = baseText,
                                 contentDescription = ""
                             )
                         }
                         Spacer(modifier = modifier.width(8.dp))
                         Text(
                             color = baseText,
-                            fontStyle = FontStyle(R.font.poppins),
-                            fontSize = 20.sp,
-                            fontWeight = FontWeight(600),
+                            fontStyle = FontStyle(R.font.gotham),
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight(500),
                             text = offerName
                         )
                     }

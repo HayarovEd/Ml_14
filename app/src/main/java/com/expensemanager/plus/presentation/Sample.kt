@@ -1,4 +1,4 @@
-package com.investpro.presentation
+package com.expensemanager.plus.presentation
 
 import android.os.Build
 import android.widget.Toast
@@ -15,7 +15,8 @@ import com.expensemanager.plus.domain.model.TypeCard
 import com.expensemanager.plus.domain.model.basedto.BaseState
 import com.expensemanager.plus.presentation.MainEvent.OnChangeBaseState
 import com.expensemanager.plus.presentation.MainEvent.OnChangeStatusApplication
-import com.expensemanager.plus.presentation.MainViewModel
+import com.investpro.presentation.ConnectScreen
+import com.investpro.presentation.OfferScreen
 
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable

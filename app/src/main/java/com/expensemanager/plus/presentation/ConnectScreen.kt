@@ -40,6 +40,7 @@ import com.expensemanager.plus.domain.model.basedto.BaseState.Loans
 import com.expensemanager.plus.domain.model.basedto.CardsCredit
 import com.expensemanager.plus.domain.model.basedto.CardsDebit
 import com.expensemanager.plus.domain.model.basedto.CardsInstallment
+import com.expensemanager.plus.presentation.WebViewScreenPrimary
 import com.investpro.ui.theme.baseBackground
 import com.investpro.ui.theme.baseText
 import com.investpro.ui.theme.blue

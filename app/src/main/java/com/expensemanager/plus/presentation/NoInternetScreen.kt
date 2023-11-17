@@ -1,4 +1,4 @@
-package com.investpro.presentation
+package com.expensemanager.plus.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -29,49 +29,51 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.investpro.R
-import com.expensemanager.plus.presentation.MainEvent
+import com.expensemanager.plus.R
 import com.expensemanager.plus.presentation.MainEvent.Reconnect
-import com.investpro.ui.theme.baseBackground
-import com.investpro.ui.theme.blue
-import com.investpro.ui.theme.grey
+import com.expensemanager.plus.ui.theme.baseBackground
+import com.expensemanager.plus.ui.theme.baseText
+import com.expensemanager.plus.ui.theme.green
+import com.expensemanager.plus.ui.theme.secondText
 
 @Composable
 fun NoInternetScreen(
     modifier: Modifier = Modifier,
     onEvent: (MainEvent) -> Unit
 ) {
-    Box (
+    Box(
         modifier = modifier
             .fillMaxSize()
             .background(color = baseBackground)
-            .padding(24.dp)
+            .padding(27.dp)
     ) {
-        Column (
+        Column(
             modifier = modifier.align(alignment = Alignment.Center),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
-                modifier = modifier.size(110.dp),
+                modifier = modifier.size(250.dp),
                 painter = painterResource(
-                id = R.drawable.no_connection),
-                contentDescription = "")
-            Spacer(modifier = modifier.height(47.dp))
+                    id = R.drawable.no_connection
+                ),
+                contentDescription = ""
+            )
+            Spacer(modifier = modifier.height(50.dp))
             Text(
                 text = stringResource(id = R.string.not_connect),
-                fontSize = 20.sp,
-                fontWeight = FontWeight(600),
-                fontStyle = FontStyle(R.font.poppins),
-                color = blue,
+                fontSize = 18.sp,
+                fontWeight = FontWeight(500),
+                fontStyle = FontStyle(R.font.gotham),
+                color = baseText,
                 textAlign = TextAlign.Center
             )
-            Spacer(modifier = modifier.height(1.dp))
+            Spacer(modifier = modifier.height(31.dp))
             Text(
                 text = stringResource(id = R.string.try_internet),
                 fontSize = 14.sp,
-                fontWeight = FontWeight(500),
-                fontStyle = FontStyle(R.font.poppins),
-                color = grey,
+                fontWeight = FontWeight(400),
+                fontStyle = FontStyle(R.font.gotham),
+                color = secondText,
                 textAlign = TextAlign.Center
             )
             /*Spacer(modifier = modifier.height(64.dp))
@@ -102,7 +104,7 @@ fun NoInternetScreen(
             modifier = modifier
                 .fillMaxWidth()
                 .align(alignment = Alignment.BottomCenter),
-            shape = RoundedCornerShape(5.dp),
+            shape = RoundedCornerShape(10.dp),
             /*border = BorderStroke(
                 width = 1.dp,
                 color = green
@@ -111,7 +113,7 @@ fun NoInternetScreen(
                 vertical = 16.dp
             ),
             colors = ButtonDefaults.outlinedButtonColors(
-                containerColor = blue,
+                containerColor = green,
                 contentColor = baseBackground,
             ),
             onClick = { onEvent(Reconnect) }
@@ -119,14 +121,15 @@ fun NoInternetScreen(
             Text(
                 text = stringResource(id = R.string.reconnect),
                 style = TextStyle(
-                    fontSize = 20.sp,
-                    fontFamily = FontFamily(Font(R.font.poppins)),
-                    fontWeight = FontWeight(600),
+                    fontSize = 14.sp,
+                    fontFamily = FontFamily(Font(R.font.gotham)),
+                    fontWeight = FontWeight(500),
                 )
             )
         }
     }
 }
+
 @Preview
 @Composable
 fun SampleNoInternetScreen() {

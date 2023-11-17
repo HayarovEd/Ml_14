@@ -1,4 +1,4 @@
-package com.investpro.presentation
+package com.expensemanager.plus.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -13,8 +13,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.investpro.R
-import com.investpro.ui.theme.blue
+import com.expensemanager.plus.R
+import com.expensemanager.plus.ui.theme.green
 
 @Preview
 @Composable
@@ -24,7 +24,7 @@ fun SplashScreen(
     Box(
         modifier = modifier
             .fillMaxSize()
-            .background(color = blue)
+            .background(color = green)
             .padding(25.dp)
     ) {
         Image(
