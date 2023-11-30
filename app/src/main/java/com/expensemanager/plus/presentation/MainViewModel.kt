@@ -180,6 +180,12 @@ class MainViewModel @Inject constructor(
             }
 
             is OnChangeBaseState -> {
+                if (mainEvent.baseState is BaseState.WebPrimary) {
+                    sendGoToOffer(
+                        url = mainEvent.baseState.offerName,
+                        parameter = OFFER_WALL
+                    )
+                }
                 _state.value.copy(
                     statusApplication = StatusApplication.Connect(mainEvent.baseState),
                 )
